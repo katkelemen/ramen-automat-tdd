@@ -1,11 +1,25 @@
 {
-  "name": "triangle-challenge",
+  "name": "ramenautomat",
   "version": "1.0.0",
-  "description": "",
-  "main": "toRoman.js",
+  "main": "ramen.js",
   "scripts": {
     "test": "jasmine"
   },
   "author": "katkelemen",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.1",
+    "gulp-serve": "^1.4.0",
+    "gulp-watch": "^5.0.0"
+  },
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-serve": "^1.4.0",
+    "jasmine": "^2.9.0",
+    "nodemon": "^1.14.11"
+  },
+  "description": ""
 }

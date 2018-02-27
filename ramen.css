@@ -1,0 +1,45 @@
+#container {
+	width: 300px;
+	height: 500px;
+	background-color: #ccff66;
+	margin: 0 auto;
+}
+
+.control-panel {
+	float: right;
+}
+
+.control-panel * {
+	display: block;
+}
+
+.button {
+	height: 30px;
+	width: 50px;
+	color: #cccccc;
+	background-color: #333333;
+	margin: 10px 10px;
+	border: 2px solid #4c4c4c;
+}
+
+#ramenHole, #changeHole {
+	border: 2px solid #4c4c4c;
+	background-color: #191919;
+	color: #fd8008;
+}
+
+#ramenHole {
+	height: 100px;
+	width: 100px;
+	position: relative;	
+	top: 300px;
+	left: 100px;
+}
+
+#changeHole {
+	height: 30px;
+	width: 30px;
+	position: relative;	
+	top: 60px;
+	left: 250px;
+}
