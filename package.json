@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "ramen.js",
   "scripts": {
-    "test": "jasmine"
+    "test": "babel-node spec/run.js"
   },
   "author": "katkelemen",
   "license": "ISC",
@@ -16,6 +16,8 @@
     "gulp-watch": "^5.0.0"
   },
   "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
     "gulp": "^3.9.1",
     "gulp-serve": "^1.4.0",
     "jasmine": "^2.9.0",
