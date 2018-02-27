@@ -18,5 +18,13 @@ export class RamenAutomat {
         return
     }
   }
+
+  cancel() {
+    if (this.sate == "standByForRamen") {
+      this.state = "standByForCoin";
+    } else {
+      return
+    }
+  }
 };
 

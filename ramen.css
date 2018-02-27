@@ -14,21 +14,25 @@
 }
 
 .button {
-	height: 30px;
-	width: 50px;
+	height: 40px;
+	width: 70px;
 	color: #cccccc;
 	background-color: #333333;
 	margin: 10px 10px;
 	border: 2px solid #4c4c4c;
 }
 
-#ramenHole, #changeHole {
+#coin-button {
+	border:2px solid red;
+}
+
+#ramen-space, #change-space {
 	border: 2px solid #4c4c4c;
 	background-color: #191919;
 	color: #fd8008;
 }
 
-#ramenHole {
+#ramen-space {
 	height: 100px;
 	width: 100px;
 	position: relative;	
@@ -36,10 +40,11 @@
 	left: 100px;
 }
 
-#changeHole {
+#change-space {
 	height: 30px;
 	width: 30px;
 	position: relative;	
-	top: 60px;
+	top: 100px;
 	left: 250px;
 }
+
