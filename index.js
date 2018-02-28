@@ -69,5 +69,4 @@ function onRamenSpace () {
 		coinButton.className = "button borderBlink";
 		ramenSpace.className = "";
 	}
-	//this should change the state back to ""
 }
