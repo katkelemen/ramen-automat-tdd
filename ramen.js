@@ -5,7 +5,7 @@ export class RamenAutomat {
 
   insertCoin() {
     if (this.state == "standByForRamen") {
-        return "Take your change!"
+        return "Take your change"
     } else {
         this.state = "standByForRamen"
     }
@@ -13,15 +13,17 @@ export class RamenAutomat {
 
   chooseRamen() {
     if (this.state == "standByForRamen") {
-        return "Enjoy your ramen!"
+        this.state = "standByForCoin";
+        return "Take your ramen";
     } else {
         return
     }
   }
 
   cancel() {
-    if (this.sate == "standByForRamen") {
+    if (this.state == "standByForRamen") {
       this.state = "standByForCoin";
+      return "Coins in tray";
     } else {
       return
     }

@@ -17,25 +17,44 @@ ramenSpace.onclick = onRamenSpace;
 console.log(r.state);
 
 function onCoinButton () {
-	r.insertCoin();
-	this.style.border = "2px solid #4c4c4c";
-	chooseButton.style.border="2px solid red";
-	console.log(r.state);
+	if (ramenSpace.innerHTML == "R") {
+		alert("Take your ramen!");
+		return
+	}
+	else if (r.insertCoin() == "Take your change") {
+		changeSpace.innerHTML = "C";
+	} else {
+		this.style.border = "2px solid #4c4c4c";
+		chooseButton.style.border="2px solid red";
+		console.log(r.state);
+	}
+	
 }
 
 function onChooseButton () {
-	r.chooseRamen();
-	this.style.border = "2px solid #4c4c4c";
-	ramenSpace.innerHTML = "R";
-	console.log(r.state);
+	if (ramenSpace.innerHTML == "R") {
+		alert("Take your ramen!");
+		return
+	}
+	else if (r.chooseRamen() == "Take your ramen") {
+		this.style.border = "2px solid #4c4c4c";
+		coinButton.style.border = "2px solid red";
+		ramenSpace.innerHTML = "R";
+		console.log(r.state);
+	}
 }
 
 function onCancelButton () {
-	//"C" should only be displayed if coin was already pressed
-	r.cancel();
-	chooseButton.style.border = "2px solid #4c4c4c";
-	changeSpace.innerHTML = "C";
-	console.log(r.state);
+	if (ramenSpace.innerHTML == "R") {
+		alert("Take your ramen!");
+		return
+	}
+	else if (r.cancel() == "Coins in tray") {
+		chooseButton.style.border = "2px solid #4c4c4c";
+		coinButton.style.border = "2px solid red";
+		changeSpace.innerHTML = "C";
+		console.log(r.state);
+	}
 }
 
 function onChangeSpace () {
@@ -48,5 +67,5 @@ function onRamenSpace () {
 	if (ramenSpace.innerHTML == "R") {
 		ramenSpace.innerHTML = "";
 	}
-	//this should change the state back to "standByForCoin"
+	//this should change the state back to ""
 }

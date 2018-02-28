@@ -7,15 +7,32 @@ describe("ramen automat", function() {
 
   it("insert coin", function() {
     let r = new ramen.RamenAutomat();
-    r.insertCoin()
-    expect(r.insertCoin()).toEqual("Take your change!");
+    r.insertCoin();
+    r.insertCoin();
+    expect(r.state).toEqual("standByForRamen");
   });
 
   it("choose ramen", function() {
     let r = new ramen.RamenAutomat();
     r.insertCoin()
-    expect(r.chooseRamen()).toEqual("Enjoy your ramen!");
+    r.chooseRamen()
+    expect(r.state).toEqual("standByForCoin");
   });
+
+  it("cancels coin", function() {
+    let r = new ramen.RamenAutomat();
+    r.insertCoin();
+    r.cancel();
+    expect(r.state).toEqual("standByForCoin");
+  });
+
+  it("cancels coin", function() {
+    let r = new ramen.RamenAutomat();
+    r.insertCoin();
+    expect(r.cancel()).toEqual("Coins in tray");
+  });
+
+  
 
 });
 
