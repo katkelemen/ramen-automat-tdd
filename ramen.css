@@ -22,10 +22,6 @@
 	border: 2px solid #4c4c4c;
 }
 
-#coin-button {
-	border:2px solid red;
-}
-
 #ramen-space, #change-space {
 	border: 2px solid #4c4c4c;
 	background-color: #191919;
@@ -47,4 +43,26 @@
 	top: 100px;
 	left: 250px;
 }
+
+@-webkit-keyframes borderBlink {    
+    from, to {    
+        border-color: transparent    
+    }    
+    50% {    
+        border-color: red    
+    }    
+}    
+@keyframes borderBlink {    
+    from, to {    
+        border-color: transparent    
+    }    
+    50% {    
+        border-color: red    
+    }    
+}    
+.borderBlink{    
+    -webkit-animation: borderBlink 1s step-end infinite;    
+    animation: borderBlink 1s step-end infinite; 
+}
+
 

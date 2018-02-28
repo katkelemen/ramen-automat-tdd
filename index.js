@@ -24,8 +24,8 @@ function onCoinButton () {
 	else if (r.insertCoin() == "Take your change") {
 		changeSpace.innerHTML = "C";
 	} else {
-		this.style.border = "2px solid #4c4c4c";
-		chooseButton.style.border="2px solid red";
+		chooseButton.className = "button borderBlink";
+		coinButton.className = "button";
 		console.log(r.state);
 	}
 	
@@ -37,8 +37,8 @@ function onChooseButton () {
 		return
 	}
 	else if (r.chooseRamen() == "Take your ramen") {
-		this.style.border = "2px solid #4c4c4c";
-		coinButton.style.border = "2px solid red";
+		chooseButton.className = "button";
+		ramenSpace.className = "borderBlink";
 		ramenSpace.innerHTML = "R";
 		console.log(r.state);
 	}
@@ -50,8 +50,8 @@ function onCancelButton () {
 		return
 	}
 	else if (r.cancel() == "Coins in tray") {
-		chooseButton.style.border = "2px solid #4c4c4c";
-		coinButton.style.border = "2px solid red";
+		chooseButton.className = "button";
+		coinButton.className = "button borderBlink";
 		changeSpace.innerHTML = "C";
 		console.log(r.state);
 	}
@@ -66,6 +66,8 @@ function onChangeSpace () {
 function onRamenSpace () {
 	if (ramenSpace.innerHTML == "R") {
 		ramenSpace.innerHTML = "";
+		coinButton.className = "button borderBlink";
+		ramenSpace.className = "";
 	}
 	//this should change the state back to ""
 }
