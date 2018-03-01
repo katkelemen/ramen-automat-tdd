@@ -18,16 +18,17 @@ ramenSpace.onclick = onRamenSpace;
 console.log(r.state);
 
 function onCoinButton () {
-	if (ramenSpace.innerHTML == "R") {
+	if (ramenSpace.className == "ramen-in") {
 		display.innerHTML = "Enjoy your ramen!";
 		return
 	}
 	else if (r.insertCoin() == "Take your change") {
 		display.innerHTML = "Take your change!";
-		changeSpace.innerHTML = "C";
+		changeSpace.className = "coin-in";
 	} else {
 		display.innerHTML = "Choose your ramen!"
 		chooseButton.className = "button borderBlink";
+		cancelButton.style = "border-color: #efdb1b";
 		coinButton.className = "button";
 		console.log(r.state);
 	}
@@ -35,20 +36,20 @@ function onCoinButton () {
 }
 
 function onChooseButton () {
-	display.innerHTML = "Enjoy your ramen!";
-	if (ramenSpace.innerHTML == "R") {
+	if (ramenSpace.className == "ramen-in") {
 		return
 	}
 	else if (r.chooseRamen() == "Take your ramen") {
+		display.innerHTML = "Enjoy your ramen!";
 		chooseButton.className = "button";
-		ramenSpace.className = "borderBlink";
-		ramenSpace.innerHTML = "R";
+		cancelButton.style = "border-color: #4c4c4c";
+		ramenSpace.className = "ramen-in";
 		console.log(r.state);
 	}
 }
 
 function onCancelButton () {
-	if (ramenSpace.innerHTML == "R") {
+	if (ramenSpace.className == "ramen-in") {
 		display.innerHTML = "Enjoy your ramen!";
 		return
 	}
@@ -56,14 +57,15 @@ function onCancelButton () {
 		display.innerHTML = "Take your change!";
 		chooseButton.className = "button";
 		coinButton.className = "button borderBlink";
-		changeSpace.innerHTML = "C";
+		changeSpace.className = "coin-in";
+		cancelButton.style = "border-color: #4c4c4c";
 		console.log(r.state);
 	}
 }
 
 function onChangeSpace () {
-	if (changeSpace.innerHTML == "C") {
-		changeSpace.innerHTML = "";
+	if (changeSpace.className == "coin-in") {
+		changeSpace.className = "";
 		if (coinButton.className == "button borderBlink") {
 			display.innerHTML = "Insert 1 coin for a delicious ramen bowl...";
 		}
@@ -74,9 +76,8 @@ function onChangeSpace () {
 }
 
 function onRamenSpace () {
-	if (ramenSpace.innerHTML == "R") {
+	if (ramenSpace.className == "ramen-in") {
 		display.innerHTML = "Insert 1 coin for a delicious ramen bowl...";
-		ramenSpace.innerHTML = "";
 		coinButton.className = "button borderBlink";
 		ramenSpace.className = "";
 	}
