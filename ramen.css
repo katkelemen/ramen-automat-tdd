@@ -3,6 +3,10 @@
     src: url(./fonts/automat/automat.ttf);
 }
 
+body {
+	padding: 40px 20px;
+}
+
 #container {
 	width: 300px;
 	height: 500px;
