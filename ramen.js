@@ -1,32 +1,37 @@
 export class RamenAutomat {
   constructor() {
-    this.state = "standByForCoin";
+    this.coins = 0;
+    this.ramens = {0: 2};
+    this.selectedPrice = null;
   }
 
   insertCoin() {
-    if (this.state == "standByForRamen") {
-        return "Take your change"
+    this.coins += 1;
+    return "Your credit: " + this.coins;
+  }
+
+  select(n) {
+    if (this.ramens[n] >= this.coins) {
+      this.selectedPrice = this.ramens[n];
+      return n
     } else {
-        this.state = "standByForRamen"
+      return "Not enough coins"
     }
   }
 
   chooseRamen() {
-    if (this.state == "standByForRamen") {
-        this.state = "standByForCoin";
-        return "Take your ramen";
-    } else {
-        return
+    console.log("inserted coins: " + this.coins + ", price: " + this.selectedPrice);
+    if (this.selectedPrice) {
+      if (this.coins >= this.selectedPrice) {
+          return "Take your ramen";
+      } else {
+          return "Not enough coins"
+      }
     }
   }
 
   cancel() {
-    if (this.state == "standByForRamen") {
-      this.state = "standByForCoin";
-      return "Coins in tray";
-    } else {
-      return
-    }
+    return this.coins + " coins in tray"
   }
 };
 
