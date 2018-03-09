@@ -23,6 +23,12 @@ body {
 	display: block;
 }
 
+.select-panel {
+	float: left;
+	max-width: 200px;
+	max-height: 210px;
+}
+
 .button {
 	height: 40px;
 	width: 70px;
@@ -34,6 +40,10 @@ body {
 
 .button:focus {
     outline: none;
+}
+
+.ramen-button:active {
+	border: 0.5px solid #4c4c4c;
 }
 
 #ramen-space, #change-space {
@@ -70,26 +80,18 @@ body {
 
 @-webkit-keyframes borderBlink {    
     from, to {    
-        background-color: #4c4c4c; 
         border-color: #4c4c4c; 
-        color: #cccccc;  
     }    
     50% {    
-        background-color: rgba(198, 171, 35, 0.8);
         border-color: #efdb1b; 
-        color: #1a1a1a;   
     }    
 }    
 @keyframes borderBlink {    
     from, to {    
-        background-color: #4c4c4c;
-        border-color: #4c4c4c; 
-        color: #cccccc;   
+        border-color: #4c4c4c;  
     }    
     50% {    
-        background-color: rgba(198, 171, 35, 0.8);
-        border-color: #efdb1b;
-        color: #1a1a1a;   
+        border-color: #efdb1b; 
     }    
 }    
 .borderBlink{    
