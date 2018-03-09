@@ -16,14 +16,12 @@ describe("ramen automat", function() {
     expect(r.insertCoin()).toEqual("Your credit: 2");
  });
 
-  it("choose ramen with not enough coins", function() {
+  it("select ramen with not enough coins", function() {
     let r = new ramen.RamenAutomat();
-    r.insertCoin();
-    r.select(0);
-    expect(r.chooseRamen()).toEqual("Not enough coins");
+    expect(r.select(0)).toEqual("Not enough coins");
   });
 
-  it("choose ramen with enough coins", function() {
+  it("choose ramen with exactly enough coins", function() {
     let r = new ramen.RamenAutomat();
     r.insertCoin();
     r.insertCoin();
@@ -31,10 +29,13 @@ describe("ramen automat", function() {
     expect(r.chooseRamen()).toEqual("Take your ramen");
   });
 
-  it("cancels coin", function() {
+  it("choose ramen with more than enough coins", function() {
     let r = new ramen.RamenAutomat();
     r.insertCoin();
-    expect(r.cancel()).toEqual("1 coins in tray");
+    r.insertCoin();
+    r.insertCoin();
+    r.select(0);
+    expect(r.chooseRamen()).toEqual("Take your ramen and don't forget your change!");
   });
 
   it("cancels coin", function() {
@@ -50,6 +51,34 @@ describe("ramen automat", function() {
     r.insertCoin();
     r.select(0);
     expect(r.cancel()).toEqual("2 coins in tray");
+  });
+
+  it("cancel changed coins in machine to 0", function() {
+    let r = new ramen.RamenAutomat();
+    r.insertCoin();
+    r.insertCoin();
+    r.select(0);
+    r.cancel();
+    expect(r.coins).toEqual(0);
+  });
+
+  it("coins used when ramen chosen", function() {
+    let r = new ramen.RamenAutomat();
+    r.insertCoin();
+    r.insertCoin();
+    r.select(0);
+    r.chooseRamen();
+    expect(r.coins).toEqual(0);
+  });
+
+  it("after ramen in tray, leftover coins returned to coin space", function() {
+    let r = new ramen.RamenAutomat();
+    r.insertCoin();
+    r.insertCoin();
+    r.insertCoin();
+    r.select(0);
+    r.chooseRamen();
+    expect(r.coins).toEqual(0);
   });
 
   

@@ -1,7 +1,12 @@
 export class RamenAutomat {
   constructor() {
     this.coins = 0;
-    this.ramens = {0: 2};
+    this.ramens = {
+      0: 2,
+      1: 3,
+      2: 4,
+      3: 5
+    };
     this.selectedPrice = null;
   }
 
@@ -11,27 +16,30 @@ export class RamenAutomat {
   }
 
   select(n) {
-    if (this.ramens[n] >= this.coins) {
+    if (this.ramens[n] <= this.coins) {
       this.selectedPrice = this.ramens[n];
-      return n
+      return ["You have selected ramen " + n, this.ramens[n]]
     } else {
-      return "Not enough coins"
+      return ["Not enough coins", this.ramens[n]];
     }
   }
 
   chooseRamen() {
-    console.log("inserted coins: " + this.coins + ", price: " + this.selectedPrice);
-    if (this.selectedPrice) {
-      if (this.coins >= this.selectedPrice) {
+      if (this.selectedPrice) {
+        if (this.coins == this.selectedPrice) {
+          this.coins = 0;
           return "Take your ramen";
-      } else {
-          return "Not enough coins"
-      }
+        } if (this.coins > this.selectedPrice) {
+          this.coins = 0;
+          return "Take your ramen and don't forget your change!";
+        }
     }
   }
 
   cancel() {
-    return this.coins + " coins in tray"
+    const coinsIn = this.coins
+    this.coins = 0;
+    return coinsIn + " coins in tray"
   }
 };
 
