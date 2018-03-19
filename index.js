@@ -34,9 +34,8 @@ function onCoinButton () {
 		ramen1.className = "button ramen-button borderBlink";
 		ramen2.className = "button ramen-button borderBlink";
 		ramen3.className = "button ramen-button borderBlink";
-		cancelButton.style = "border-color: #efdb1b";
-		coinButton.style = "border-color: #efdb1b";
-		coinButton.className = "button";
+		cancelButton.className = "button button-available";
+		coinButton.className = "button button-available";
 		console.log("coins in: " + r.coins);
 	}
 	
@@ -49,8 +48,13 @@ function onChooseButton () {
 	else if (r.chooseRamen() == "Take your ramen") {
 		display.innerHTML = "Enjoy your ramen!";
 		chooseButton.className = "button";
-		cancelButton.style = "border-color: #4c4c4c";
+		coinButton.className = "button";
+		cancelButton.className = "button";
 		ramenSpace.className = "ramen-in";
+		ramen0.className = "button ramen-button";
+		ramen1.className = "button ramen-button";
+		ramen2.className = "button ramen-button";
+		ramen3.className = "button ramen-button";
 		console.log("coins in: " + r.coins);
 	}
 }
@@ -104,6 +108,8 @@ function onRamenSelect (n, selected) {
 		ramen1.className = "button ramen-button";
 		ramen2.className = "button ramen-button";
 		ramen3.className = "button ramen-button";
-		selected.style = "border-color: #efdb1b";
+		selected.className = "button ramen-button ramen-button-selected";
+		chooseButton.className = "button borderBlink";
+		cancelButton.className = "button button-available"
 	}
 }
