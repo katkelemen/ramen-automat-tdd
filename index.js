@@ -60,12 +60,16 @@ function onCancelButton () {
 		display.innerHTML = "Enjoy your ramen!";
 		return
 	}
-	else if (r.cancel() == "Coins in tray") {
+	else if (!isNaN(r.cancel()[0])) {
 		display.innerHTML = "Take your change!";
 		chooseButton.className = "button";
 		coinButton.className = "button borderBlink";
 		changeSpace.className = "coin-in";
 		cancelButton.style = "border-color: #4c4c4c";
+		ramen0.className = "button ramen-button";
+		ramen1.className = "button ramen-button";
+		ramen2.className = "button ramen-button";
+		ramen3.className = "button ramen-button";
 		console.log("coins in: " + r.coins);
 	}
 }
